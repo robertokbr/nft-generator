@@ -1,5 +1,6 @@
 build/*
 !build/.gitkeep
 node_modules
-src/layers/*
-!src/layers/background
+assets/layers/*
+!assets/layers/background
+dist
