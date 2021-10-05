@@ -26,5 +26,5 @@
 ```bash
   npm run start
 ```
-
+<img src="https://github.com/robertokbr/nft-generator/blob/main/.Github/run.gif" width="100%"/>
 ### That's all folks, don't forget to leave your star 🌟
