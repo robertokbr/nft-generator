@@ -26,4 +26,4 @@ const createArts = new CreateArtsService();
 createArts.execute({
   content,
   recipes,
-})
+}).catch(error => console.error(error));

@@ -26,7 +26,7 @@ export default class CreateArtsService {
    * Generate to each recipe an art, using canvas to join 
    * all provided content
    */
-  public execute({ content, recipes }: IRequest) {
+  public async execute({ content, recipes }: IRequest) {
     recipes.forEach(async (recipe, index) => {
       const recipe_index = recipe.split('-');
     
