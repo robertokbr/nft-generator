@@ -18,7 +18,7 @@ export default class GetLayersContentService {
     const content = layers.map((layer) => {
       const complete_path = path.resolve(paths.layer_path, layer);
 
-      const layer_content =  fs.readdirSync(complete_path).map(file => file)
+      const layer_content =  fs.readdirSync(complete_path).filter(file => file.endsWith('.png'))
 
       return {
         layer,
