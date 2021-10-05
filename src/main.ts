@@ -3,7 +3,7 @@ import GetArtRecipesService from './services/GetArtRecipesService';
 import GetLayersContentService from './services/GetLayersContentService';
 
 // fill in the amount of art
-const amount = 50;
+const amount = 20;
 
 // describe your layers by montage order 
 const layers = [
@@ -26,4 +26,4 @@ const createArts = new CreateArtsService();
 createArts.execute({
   content,
   recipes,
-}).catch(error => console.error(error));
+})

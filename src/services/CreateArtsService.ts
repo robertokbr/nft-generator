@@ -26,28 +26,32 @@ export default class CreateArtsService {
    * Generate to each recipe an art, using canvas to join 
    * all provided content
    */
-  public async execute({ content, recipes }: IRequest) {
+  public execute({ content, recipes }: IRequest) {
     recipes.forEach(async (recipe, index) => {
-      const recipe_index = recipe.split('-');
+      try {
+        const recipe_index = recipe.split('-');
     
-      const images = await Promise.all(content.map(({ content, layer }, i) => {
-        const image_path = `${paths.layer_path}/${layer}/${content[Number(recipe_index[i])]}`
-    
-        return loadImage(image_path)
-      }));
-    
-      this.context.clearRect(0, 0, 1024, 1024);
-    
-      images.forEach(image => {
-        this.context.drawImage(image , 0, 0, 1024, 1024);
-      })
+        const images = await Promise.all(content.map(({ content, layer }, i) => {
+          const image_path = `${paths.layer_path}/${layer}/${content[Number(recipe_index[i])]}`
       
-      fs.writeFileSync(
-        `${paths.build_path}/${index}.png`,
-        this.canvas.toBuffer("image/png")
-      );
-    
-      console.info(`🧪 Generating image ${index} with the recipe ${recipe}...`)
+          return loadImage(image_path)
+        }));
+      
+        this.context.clearRect(0, 0, 1024, 1024);
+      
+        images.forEach(image => {
+          this.context.drawImage(image , 0, 0, 1024, 1024);
+        })
+        
+        fs.writeFileSync(
+          `${paths.build_path}/${index}.png`,
+          this.canvas.toBuffer("image/png")
+        );
+      
+        console.info(`🧪 Generating image ${index} with the recipe ${recipe}...`)
+      } catch (error) {
+        console.error(error);
+      }
     })
   }
 }
