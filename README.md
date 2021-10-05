@@ -28,6 +28,6 @@
 ```
 <img src="https://github.com/robertokbr/nft-generator/blob/main/.Github/run.gif" width="100%"/>
 
-Obs: the error of the gif is fixed. ( I forgot to to add a condition to avoid loading the .gitignore 🤷‍♂️ )
+Obs: the error of the gif is fixed. ( I forgot to to add a condition to avoid loading the .gitkeep 🤷‍♂️ )
 
 ### That's all folks, don't forget to leave your star 🌟
